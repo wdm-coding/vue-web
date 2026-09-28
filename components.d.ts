@@ -33,6 +33,8 @@ declare module 'vue' {
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NSpace: typeof import('naive-ui')['NSpace']
     NTag: typeof import('naive-ui')['NTag']
+    ProForm: typeof import('./src/components/ProForm/index.vue')['default']
+    ProFormText: typeof import('./src/components/ProForm/components/ProFormText.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/Icon/svg-icon.vue')['default']
