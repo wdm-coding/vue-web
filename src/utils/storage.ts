@@ -1,5 +1,5 @@
 const BASE_KEY = 'WDM_VUE_WEB_'
-const Cache_TYPE = sessionStorage
+const Cache_TYPE = window.sessionStorage
 // 获取数据
 export function getItem(key: string) {
   try {

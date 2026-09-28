@@ -2,14 +2,8 @@ import { defineStore } from 'pinia'
 import AuthApi from '@/api/auth.api'
 import MenuApi from '@/api/systemManage/menu.api'
 import { clearCache, setToken } from '@/utils/storage'
-interface AuthState {
-  loginAfter: string // 登录后跳转路径
-  isLoggedIn: boolean // 是否登录成功
-  token: string // 登录凭证token
-  userInfo: object | null  // 用户信息
-  menuTree: object | null  // 菜单树
-}
-export const useAuthStore = defineStore('auth',
+import type { AuthState } from '@/stores/type'
+const useAuthStore = defineStore('auth',
   {
     state: (): AuthState => ({
       loginAfter: '/',
@@ -75,3 +69,5 @@ export const useAuthStore = defineStore('auth',
     }
   }
 )
+
+export default useAuthStore

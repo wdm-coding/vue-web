@@ -1,13 +1,12 @@
 <script setup lang="ts">
 	import { ref } from "vue"
 	import Icon from "@/components/Icon/index.vue"
-	import { useGlobalStore } from "@/stores/global"
-	import { useAuthStore } from "@/stores/auth"
 	import { FormInst, FormRules } from "naive-ui"
+	import useStore from "@/hooks/useStore"
 	import { useRouter } from "vue-router"
 	const router = useRouter()
-	const { siteName } = useGlobalStore()
-	const { userLogin } = useAuthStore()
+	const { siteName } = useStore("global")
+	const { userLogin } = useStore("auth")
 	interface LoginForm {
 		username: string
 		password: string
@@ -24,7 +23,7 @@
 	const onLogin = async () => {
 		formRef.value?.validate((errors) => {
 			if (!errors) {
-				userLogin(form.value).then((path) => {
+				userLogin(form.value).then((path: string) => {
 					console.log("登录成功", form.value)
 					router.push(path)
 					window.$message.success("登录成功")
