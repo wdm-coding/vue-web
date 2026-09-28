@@ -23,6 +23,7 @@ export interface StoreState {
 }
 
 // store 定义映射：键名 -> store 定义函数
+// 新建 store 定义函数时，需要在 type.ts 中添加对应的 store 定义映射
 export interface StoreMap {
   global: typeof useGlobalStore
   auth: typeof useAuthStore
