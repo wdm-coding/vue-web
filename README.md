@@ -20,6 +20,8 @@ src/
 ├── stores/ # Pinia 状态管理
 │ ├── global.ts # 全局状态管理
 │ ├── auth.ts # 用户状态管理
+│ ├── type.ts # 类型定义映射
+│ ├── index.ts # 导出所有 store 定义函数
 ├── styles/ # 全局样式
 ├── types/ # TS 类型
 ├── utils/ # 工具函数
@@ -38,6 +40,11 @@ npm install vue-router@latest
 
 npm install pinia@latest
 npm i pinia-plugin-persistedstate 安装持久化插件
+
+::: tip
+
+1. 新建 store 定义函数时，需要在 type.ts 中添加对应的 store 定义映射
+   :::
 
 # 安装 scss
 
