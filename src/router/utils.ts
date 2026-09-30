@@ -64,7 +64,7 @@ router.addRoute({
   redirect: '/404'
 })
 // 登录白名单
-const whiteList = ['/login', '/404', '/', '/home']
+const whiteList = ['/login', '/404', '/', '/home', '/naiveForm']
 // 路由全局守卫
 router.beforeEach((to, from) => {
   const isLogin = !!getToken()

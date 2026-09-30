@@ -20,6 +20,13 @@ const list: RouterItem[] = [
         title: '首页'
       },
       {
+        path: 'naiveForm',
+        name: 'NaiveForm',
+        componentPath: '/NaiveForm/index.vue',
+        icon: 'naive-form',
+        title: 'NaiveForm'
+      },
+      {
         path: 'appCatalog',
         name: 'AppCatalogue',
         componentPath: '/AppCatalogue/index.vue',

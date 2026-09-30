@@ -1,24 +1,14 @@
 <script setup lang="ts">
-	import { NForm, FormInst } from "naive-ui"
-	import { provide, ref, useAttrs } from "vue"
-	import { provideId } from "./index"
-	const attrs = useAttrs()
-	// 注入provide
-	provide(provideId, attrs.model)
+	import { NForm } from "naive-ui"
 	defineOptions({
 		name: "ProForm",
 	})
 </script>
 
 <template>
-	<div class="proForm_wrap">
-		<n-form :ref="attrs.ref" :model="attrs.model" :rules="attrs.rules">
-			<slot></slot>
-		</n-form>
-	</div>
+	<NForm v-bind="$attrs">
+		<slot></slot>
+	</NForm>
 </template>
 
-<style lang="scss" scoped>
-	.comName_wrap {
-	}
-</style>
+<style lang="scss" scoped></style>

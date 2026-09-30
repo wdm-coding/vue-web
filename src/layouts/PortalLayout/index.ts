@@ -14,6 +14,12 @@ export const menus: MenuItem[] = [
     access: []
   },
   {
+    path: '/naiveForm',
+    name: 'NaiveForm',
+    title: 'Naive表单项',
+    access: []
+  },
+  {
     path: '/appCatalog',
     name: 'AppCatalogue',
     title: '应用资源',
