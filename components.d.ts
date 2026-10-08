@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./src/components/ProForm/components/ProFormText copy/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Message: typeof import('./src/components/Message/index.vue')['default']
@@ -37,6 +38,7 @@ declare module 'vue' {
     NTooltip: typeof import('naive-ui')['NTooltip']
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']
     ProFormField: typeof import('./src/components/ProForm/components/ProFormField/index.vue')['default']
+    ProFormNumber: typeof import('./src/components/ProForm/components/ProFormNumber/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

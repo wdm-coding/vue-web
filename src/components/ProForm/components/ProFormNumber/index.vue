@@ -1,19 +1,16 @@
 <script setup lang="ts">
 	import { Slot, useSlots } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
-	import { NInput } from "naive-ui"
+	import { NInputNumber } from "naive-ui"
 
 	const props = withDefaults(
 		defineProps<{
 			label?: string
 			path?: string
 			placeholder?: string
-			type?: "text" | "password" | "textarea"
 			fieldProps?: Record<string, any>
 		}>(),
-		{
-			type: "text",
-		},
+		{},
 	)
 
 	const inputValue = defineModel<any>("value", { required: true, default: "" })
@@ -21,16 +18,16 @@
 	const slots = useSlots()
 
 	defineOptions({
-		name: "ProFormText",
+		name: "ProFormNumber",
 	})
 </script>
 
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
-		<NInput v-model:value="inputValue" :placeholder="placeholder" v-bind="fieldProps" :type="type">
+		<NInputNumber v-model:value="inputValue" :placeholder="placeholder" v-bind="fieldProps">
 			<template v-for="(_, name) in slots" :key="name" #[name]="scopedData">
 				<component :is="slots[name] as Slot" v-bind="scopedData || {}" />
 			</template>
-		</NInput>
+		</NInputNumber>
 	</ProFormField>
 </template>

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-	import ProForm from "@/components/ProForm/index.vue"
-	import ProFormText from "@/components/ProForm/components/ProFormText/index.vue"
-	import ProFormField from "@/components/ProForm/components/ProFormField/index.vue"
+	import { ProForm, ProFormText, ProFormField, ProFormNumber } from "@/components/ProForm/components/index.ts"
 	import { reactive, ref } from "vue"
 	import { FormInst, NButton } from "naive-ui"
 	const formRef = ref<FormInst | null>(null)
@@ -9,11 +7,13 @@
 		name: "",
 		password: "",
 		desc: "",
+		number: "",
 	})
 	const rules = reactive({
 		name: [{ required: true, message: "请输入姓名", trigger: ["blur"] }],
 		password: [{ required: true, message: "请输入密码", trigger: ["blur"] }],
 		desc: [{ required: true, message: "请输入描述", trigger: ["blur"] }],
+		number: [{ required: true, message: "请输入数字", trigger: ["blur"] }],
 	})
 	const onFinish = () => {
 		formRef.value?.validate((errors) => {
@@ -35,22 +35,32 @@
 <template>
 	<div class="naiveForm_wrap">
 		<ProForm
-			:model="model"
-			ref="formRef"
-			:rules="rules"
 			class="formBox"
+			ref="formRef"
+			label-placement="left"
+			label-width="100px"
+			label-align="right"
+			:model="model"
+			:rules="rules"
 			:grid="true"
 			:rowProps="{ cols: 24 }"
-			:colProps="{ span: 6 }"
+			:colProps="{ span: 12 }"
 		>
-			<ProFormText label="姓名" path="name" v-model:value="model.name" placeholder="请输入姓名" />
+			<ProFormText label="姓名" path="name" v-model:value="model.name" placeholder="请输入姓名">
+				<template #prefix>
+					<span>prefix</span>
+				</template>
+				<template #suffix>
+					<span>suffix</span>
+				</template>
+			</ProFormText>
 			<ProFormText
 				label="密码"
 				path="password"
 				v-model:value="model.password"
 				type="password"
 				placeholder="请输入密码"
-				:span="18"
+				:span="12"
 			/>
 			<ProFormText
 				label="描述"
@@ -58,8 +68,16 @@
 				type="textarea"
 				v-model:value="model.desc"
 				placeholder="请输入描述"
-				:span="12"
+				:span="24"
 				tooltip="请输入描述"
+			/>
+			<ProFormNumber
+				label="数字"
+				path="number"
+				v-model:value="model.number"
+				placeholder="请输入数字"
+				:span="24"
+				tooltip="请输入数字"
 			/>
 			<ProFormField :span="24">
 				<div class="btn_group">
