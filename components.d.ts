@@ -34,6 +34,7 @@ declare module 'vue' {
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NSpace: typeof import('naive-ui')['NSpace']
     NTag: typeof import('naive-ui')['NTag']
+    NTooltip: typeof import('naive-ui')['NTooltip']
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']
     ProFormField: typeof import('./src/components/ProForm/components/ProFormField/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']

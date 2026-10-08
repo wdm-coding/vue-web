@@ -59,6 +59,7 @@
 				v-model:value="model.desc"
 				placeholder="请输入描述"
 				:span="12"
+				tooltip="请输入描述"
 			/>
 			<ProFormField :span="24">
 				<div class="btn_group">
