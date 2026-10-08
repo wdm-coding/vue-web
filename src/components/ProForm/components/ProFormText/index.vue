@@ -1,18 +1,27 @@
 <script setup lang="ts">
-	import { NFormItem, NInput } from "naive-ui"
+	import ProFormField from "../ProFormField/index.vue"
+	import { NInput } from "naive-ui"
+	const props = withDefaults(
+		defineProps<{
+			label?: string
+			path?: string
+			placeholder?: string
+			type?: "text" | "password" | "textarea"
+			fieldProps?: Record<string, any>
+		}>(),
+		{
+			type: "text",
+		},
+	)
 
+	const inputValue = defineModel<any>("value", { required: true, default: "" })
 	defineOptions({
 		name: "ProFormText",
 	})
 </script>
 
 <template>
-	<NFormItem>
-		<NInput></NInput>
-	</NFormItem>
+	<ProFormField :label="label" :path="path" v-bind="$attrs">
+		<NInput v-model:value="inputValue" :placeholder="placeholder" v-bind="fieldProps" :type="type" />
+	</ProFormField>
 </template>
-
-<style lang="scss" scoped>
-	.comName_wrap {
-	}
-</style>
