@@ -45,7 +45,7 @@
 	const restoreValidation = () => {
 		// 重置表单数据
 		Object.keys(props.model).forEach((key) => {
-			props.model[key] = ""
+			props.model[key] = null
 		})
 		innerFormRef.value?.restoreValidation()
 	}

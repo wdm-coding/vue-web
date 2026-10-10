@@ -13,7 +13,7 @@
 		{},
 	)
 
-	const inputValue = defineModel<any>("value", { required: true, default: "" })
+	const inputValue = defineModel<any>("value", { required: true, default: null })
 
 	const slots = useSlots()
 
@@ -24,7 +24,7 @@
 
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
-		<NInputNumber v-model:value="inputValue" :placeholder="placeholder" v-bind="fieldProps">
+		<NInputNumber style="width: 100%" v-model:value="inputValue" :placeholder="placeholder" v-bind="fieldProps">
 			<template v-for="(_, name) in slots" :key="name" #[name]="scopedData">
 				<component :is="slots[name] as Slot" v-bind="scopedData || {}" />
 			</template>

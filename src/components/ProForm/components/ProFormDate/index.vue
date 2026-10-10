@@ -1,51 +1,52 @@
 <script setup lang="ts">
-	import { onMounted, ref, Slot, useSlots } from "vue"
+	import { Slot, useSlots } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
-	import { NInput } from "naive-ui"
+	import { NDatePicker } from "naive-ui"
 
 	const props = withDefaults(
 		defineProps<{
 			label?: string
 			path?: string
 			placeholder?: string
-			type?: "text" | "password" | "textarea"
+			type?: "date" | "datetime" | "month" | "year" | "quarter" | "week"
 			fieldProps?: Record<string, any>
-			disabledAutocomplete?: boolean
 		}>(),
 		{
-			type: "text",
-			disabledAutocomplete: false,
+			type: "date",
 		},
 	)
 
 	const inputValue = defineModel<any>("value", { required: true, default: null })
-	const readonly = ref(props.disabledAutocomplete)
-	onMounted(() => {
-		if (props.disabledAutocomplete) {
-			setTimeout(() => {
-				readonly.value = false
-			}, 200)
-		}
-	})
+
 	const slots = useSlots()
 
+	const valueFormat = {
+		date: "yyyy-MM-dd",
+		datetime: "yyyy-MM-dd HH:mm:ss",
+		month: "yyyy-MM",
+		year: "yyyy年",
+		quarter: "yyyy-第Q季度",
+		week: "YYYY-w周",
+	}
+
 	defineOptions({
-		name: "ProFormText",
+		name: "ProFormDate",
 	})
 </script>
 
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
-		<NInput
-			v-model:value="inputValue"
+		<NDatePicker
+			v-model:formatted-value="inputValue"
+			:value-format="valueFormat[props.type]"
 			:placeholder="placeholder"
-			v-bind="fieldProps"
 			:type="type"
-			:readonly="disabledAutocomplete ? readonly : fieldProps?.readonly"
+			style="width: 100%"
+			v-bind="fieldProps"
 		>
 			<template v-for="(_, name) in slots" :key="name" #[name]="scopedData">
 				<component :is="slots[name] as Slot" v-bind="scopedData || {}" />
 			</template>
-		</NInput>
+		</NDatePicker>
 	</ProFormField>
 </template>

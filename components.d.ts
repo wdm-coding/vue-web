@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/ProForm/components/ProFormText copy/index.vue')['default']
+    copy: typeof import('./src/components/ProForm/components/ProFormNumber copy/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Message: typeof import('./src/components/Message/index.vue')['default']
@@ -21,6 +21,7 @@ declare module 'vue' {
     NAvatar: typeof import('naive-ui')['NAvatar']
     NBackTop: typeof import('naive-ui')['NBackTop']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDropdown: typeof import('naive-ui')['NDropdown']
     NForm: typeof import('naive-ui')['NForm']
@@ -37,8 +38,12 @@ declare module 'vue' {
     NTag: typeof import('naive-ui')['NTag']
     NTooltip: typeof import('naive-ui')['NTooltip']
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']
+    ProFormData: typeof import('./src/components/ProForm/components/ProFormData/index.vue')['default']
+    ProFormDate: typeof import('./src/components/ProForm/components/ProFormDate/index.vue')['default']
+    ProFormDateRange: typeof import('./src/components/ProForm/components/ProFormDateRange/index.vue')['default']
     ProFormField: typeof import('./src/components/ProForm/components/ProFormField/index.vue')['default']
     ProFormNumber: typeof import('./src/components/ProForm/components/ProFormNumber/index.vue')['default']
+    ProFormSelect: typeof import('./src/components/ProForm/components/ProFormSelect/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
