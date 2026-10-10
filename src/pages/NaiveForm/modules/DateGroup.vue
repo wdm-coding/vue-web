@@ -1,0 +1,111 @@
+<script setup lang="ts">
+	import { ProFormDate, ProFormDateRange } from "@/components/ProForm/components/index.ts"
+	defineProps<{
+		model: Record<string, any>
+	}>()
+	defineOptions({
+		name: "DateGroup",
+	})
+</script>
+
+<template>
+	<ProFormDate
+		label="日期"
+		path="date"
+		v-model:value="model.date"
+		placeholder="请选择日期"
+		:span="12"
+		tooltip="请选择日期"
+	/>
+	<ProFormDate
+		label="时间日期"
+		path="datetime"
+		v-model:value="model.datetime"
+		type="datetime"
+		placeholder="请选择时间日期"
+		:span="12"
+		tooltip="请选择时间日期"
+	/>
+	<ProFormDate
+		label="月份"
+		path="month"
+		v-model:value="model.month"
+		type="month"
+		placeholder="请选择月份"
+		:span="12"
+		tooltip="请选择月份"
+	/>
+	<ProFormDate
+		label="年份"
+		path="year"
+		v-model:value="model.year"
+		type="year"
+		placeholder="请选择年份"
+		:span="12"
+		tooltip="请选择年份"
+	/>
+	<ProFormDate
+		label="季度"
+		path="quarter"
+		v-model:value="model.quarter"
+		type="quarter"
+		placeholder="请选择季度"
+		:span="12"
+		tooltip="请选择季度"
+	/>
+	<ProFormDate
+		label="周"
+		path="week"
+		v-model:value="model.week"
+		type="week"
+		placeholder="请选择周"
+		:span="12"
+		tooltip="请选择周"
+	/>
+	<ProFormDateRange
+		label="日期范围"
+		path="daterange"
+		type="daterange"
+		v-model:value="model.daterange"
+		:span="12"
+		tooltip="请选择日期范围"
+	/>
+	<ProFormDateRange
+		label="时间日期范围"
+		path="datetimerange"
+		v-model:value="model.datetimerange"
+		type="datetimerange"
+		:span="12"
+		tooltip="请选择时间日期范围"
+	/>
+	<ProFormDateRange
+		label="月份范围"
+		path="monthrange"
+		v-model:value="model.monthrange"
+		type="monthrange"
+		:span="12"
+		tooltip="请选择月份范围"
+	/>
+	<ProFormDateRange
+		label="年份范围"
+		path="yearrange"
+		v-model:value="model.yearrange"
+		type="yearrange"
+		:span="12"
+		tooltip="请选择年份范围"
+	/>
+	<ProFormDateRange
+		label="季度范围"
+		path="quarterrange"
+		type="quarterrange"
+		v-model:value="model.quarterrange"
+		:span="12"
+		tooltip="请选择季度范围"
+	/>
+</template>
+
+<style lang="scss" scoped>
+	.DateGroup_wrap {
+		width: 100%;
+	}
+</style>
