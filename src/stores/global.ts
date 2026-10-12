@@ -3,10 +3,17 @@ import type { GlobalState } from '@/stores/type'
 const useGlobalStore = defineStore('global',
   {
     state: (): GlobalState => ({
+      scrollTarget: undefined,
       siteName: 'Vue 门户平台'
     }),
+    actions: {
+      setScrollTarget(newTarget: HTMLElement | undefined) {
+        this.scrollTarget = newTarget
+      }
+    },
     persist: {
       key: 'global',
+      omit: ['scrollTarget'],
       storage: window.sessionStorage
     }
   }

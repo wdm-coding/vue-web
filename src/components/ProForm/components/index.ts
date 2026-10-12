@@ -5,6 +5,7 @@ import ProFormNumber from "@/components/ProForm/components/ProFormNumber/index.v
 import ProFormDate from "@/components/ProForm/components/ProFormDate/index.vue"
 import ProFormDateRange from "@/components/ProForm/components/ProFormDateRange/index.vue"
 import ProFormSelect from "@/components/ProForm/components/ProFormSelect/index.vue"
+import ProFormGroup from "@/components/ProForm/components/ProFormGroup/index.vue"
 
 export {
   ProForm,
@@ -13,5 +14,6 @@ export {
   ProFormNumber,
   ProFormDate,
   ProFormDateRange,
-  ProFormSelect
+  ProFormSelect,
+  ProFormGroup
 }

@@ -3,6 +3,7 @@ import useGlobalStore from "./global"
 
 /** global store 状态 */
 export interface GlobalState {
+  scrollTarget: HTMLElement | undefined
   siteName: string
 }
 

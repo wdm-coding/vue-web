@@ -42,6 +42,7 @@ declare module 'vue' {
     ProFormDate: typeof import('./src/components/ProForm/components/ProFormDate/index.vue')['default']
     ProFormDateRange: typeof import('./src/components/ProForm/components/ProFormDateRange/index.vue')['default']
     ProFormField: typeof import('./src/components/ProForm/components/ProFormField/index.vue')['default']
+    ProFormGroup: typeof import('./src/components/ProForm/components/ProFormGroup/index.vue')['default']
     ProFormNumber: typeof import('./src/components/ProForm/components/ProFormNumber/index.vue')['default']
     ProFormSelect: typeof import('./src/components/ProForm/components/ProFormSelect/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']

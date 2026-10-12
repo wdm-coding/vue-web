@@ -5,6 +5,8 @@
 	import SelectGroup from "./modules/SelectGroup.vue"
 	import { reactive, ref } from "vue"
 	import { FormInst, NButton } from "naive-ui"
+	import useStore from "@/hooks/useStore.ts"
+	const { scrollTarget } = useStore("global")
 	const formRef = ref<FormInst | null>(null)
 	const model = reactive<Record<string, any>>({
 		name: "1",
@@ -22,7 +24,8 @@
 		monthrange: null,
 		yearrange: null,
 		quarterrange: null,
-		select: null,
+		selectSingle: null,
+		selectMulti: null,
 	})
 	const rules = reactive({
 		name: [{ required: true, message: "请输入姓名", trigger: ["blur"] }],
@@ -60,6 +63,7 @@
 			:grid="true"
 			:rowProps="{ cols: 24 }"
 			:colProps="{ span: 12 }"
+			:scrollTarget="scrollTarget"
 		>
 			<InputGroup :model="model" />
 			<DateGroup :model="model" />
