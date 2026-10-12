@@ -50,7 +50,9 @@
 					const firstError = document.querySelector(".n-input--error-status")
 					if (firstError && props.scrollTarget) {
 						const errorRect = firstError.getBoundingClientRect()
-						props.scrollTarget.scrollTop = errorRect.top
+						const containerRect = props.scrollTarget.getBoundingClientRect()
+						const targetTop = errorRect.top - containerRect.top + props.scrollTarget.scrollTop - 100
+						props.scrollTarget.scrollTop = targetTop
 					}
 				})
 			}
