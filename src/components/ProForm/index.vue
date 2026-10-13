@@ -46,6 +46,7 @@
 		innerFormRef.value?.validate((errors) => {
 			if (errors) {
 				args[0](errors)
+				// 滚动到第一个错误位置
 				nextTick(() => {
 					const firstError = document.querySelector(".n-input--error-status")
 					if (firstError && props.scrollTarget) {
@@ -55,6 +56,8 @@
 						props.scrollTarget.scrollTop = targetTop
 					}
 				})
+			} else {
+				args[0](null)
 			}
 		})
 	}

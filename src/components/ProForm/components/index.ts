@@ -6,6 +6,7 @@ import ProFormDate from "@/components/ProForm/components/ProFormDate/index.vue"
 import ProFormDateRange from "@/components/ProForm/components/ProFormDateRange/index.vue"
 import ProFormSelect from "@/components/ProForm/components/ProFormSelect/index.vue"
 import ProFormGroup from "@/components/ProForm/components/ProFormGroup/index.vue"
+import ProFormCascader from "@/components/ProForm/components/ProFormCascader/index.vue"
 
 export {
   ProForm,
@@ -15,5 +16,6 @@ export {
   ProFormDate,
   ProFormDateRange,
   ProFormSelect,
-  ProFormGroup
+  ProFormGroup,
+  ProFormCascader
 }

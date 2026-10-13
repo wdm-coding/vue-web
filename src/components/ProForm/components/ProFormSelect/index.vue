@@ -18,6 +18,7 @@
 			multiple: false,
 		},
 	)
+	const remote = computed(() => props.request !== undefined)
 	const loading = ref(false)
 	// 内部值
 	const innerValue = ref<any>(null)
@@ -95,6 +96,7 @@
 			:options="selectOptions"
 			:loading="loading"
 			:multiple="multiple"
+			:remote="remote"
 			@update:value="handleChange"
 			v-bind="fieldProps"
 		>

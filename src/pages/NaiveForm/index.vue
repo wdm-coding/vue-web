@@ -3,6 +3,7 @@
 	import InputGroup from "./modules/InputGroup.vue"
 	import DateGroup from "./modules/DateGroup.vue"
 	import SelectGroup from "./modules/SelectGroup.vue"
+	import CascaderGroup from "./modules/CascaderGroup.vue"
 	import { reactive, ref } from "vue"
 	import { FormInst, NButton } from "naive-ui"
 	import useStore from "@/hooks/useStore.ts"
@@ -26,6 +27,10 @@
 		quarterrange: null,
 		selectSingle: null,
 		selectMulti: null,
+		selectAsync: null,
+		cascaderSingle: null,
+		cascaderMulti: null,
+		cascaderAsync: null,
 	})
 	const rules = reactive({
 		name: [{ required: true, message: "请输入姓名", trigger: ["blur"] }],
@@ -56,7 +61,7 @@
 			class="formBox"
 			ref="formRef"
 			label-placement="left"
-			label-width="100px"
+			label-width="120px"
 			label-align="right"
 			:model="model"
 			:rules="rules"
@@ -68,6 +73,7 @@
 			<InputGroup :model="model" />
 			<DateGroup :model="model" />
 			<SelectGroup :model="model" />
+			<CascaderGroup :model="model" />
 			<ProFormField :span="24">
 				<div class="btn_group">
 					<NButton type="primary" @click="onFinish">提交</NButton>
