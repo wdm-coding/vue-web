@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/ProForm/components/ProFormNumber copy/index.vue')['default']
+    copy: typeof import('./src/components/ProForm/components/ProFormCheckBoxGroup copy/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Message: typeof import('./src/components/Message/index.vue')['default']
@@ -39,12 +39,15 @@ declare module 'vue' {
     NTooltip: typeof import('naive-ui')['NTooltip']
     ProForm: typeof import('./src/components/ProForm/index.vue')['default']
     ProFormCascader: typeof import('./src/components/ProForm/components/ProFormCascader/index.vue')['default']
+    ProFormCheckBoxGroup: typeof import('./src/components/ProForm/components/ProFormCheckBoxGroup/index.vue')['default']
     ProFormData: typeof import('./src/components/ProForm/components/ProFormData/index.vue')['default']
     ProFormDate: typeof import('./src/components/ProForm/components/ProFormDate/index.vue')['default']
     ProFormDateRange: typeof import('./src/components/ProForm/components/ProFormDateRange/index.vue')['default']
+    ProFormDependency: typeof import('./src/components/ProForm/components/ProFormDependency/index.vue')['default']
     ProFormField: typeof import('./src/components/ProForm/components/ProFormField/index.vue')['default']
     ProFormGroup: typeof import('./src/components/ProForm/components/ProFormGroup/index.vue')['default']
     ProFormNumber: typeof import('./src/components/ProForm/components/ProFormNumber/index.vue')['default']
+    ProFormRadioGroup: typeof import('./src/components/ProForm/components/ProFormRadioGroup/index.vue')['default']
     ProFormSelect: typeof import('./src/components/ProForm/components/ProFormSelect/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

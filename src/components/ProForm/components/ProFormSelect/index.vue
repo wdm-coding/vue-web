@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { computed, onMounted, ref, useSlots, watch } from "vue"
+	import { computed, ComputedRef, onMounted, ref, useSlots, watch } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { NSelect } from "naive-ui"
 	const emit = defineEmits(["change"])
@@ -24,7 +24,8 @@
 	const innerValue = ref<any>(null)
 	// 外部值
 	const externalValue = defineModel<any>("value", { required: true })
-
+	const labelField: ComputedRef<string> = computed(() => props.fieldProps?.labelField || "label")
+	const valueField: ComputedRef<string> = computed(() => props.fieldProps?.valueField || "value")
 	const slots = useSlots()
 
 	// 下拉选项
@@ -48,7 +49,7 @@
 	}
 
 	// 缓存下拉选项值，避免重复请求
-	const optionsValues = computed(() => selectOptions.value.map((item) => item.value))
+	const optionsValues = computed(() => selectOptions.value.map((item) => item[valueField.value]))
 	// 初始化时请求数据
 	onMounted(() => {
 		requestOptions(props.params)

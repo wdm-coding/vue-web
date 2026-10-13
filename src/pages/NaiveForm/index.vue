@@ -4,6 +4,8 @@
 	import DateGroup from "./modules/DateGroup.vue"
 	import SelectGroup from "./modules/SelectGroup.vue"
 	import CascaderGroup from "./modules/CascaderGroup.vue"
+	import CheckRadioGroup from "./modules/CheckRadioGroup.vue"
+	import Dependency from "./modules/Dependency.vue"
 	import { reactive, ref } from "vue"
 	import { FormInst, NButton } from "naive-ui"
 	import useStore from "@/hooks/useStore.ts"
@@ -31,6 +33,9 @@
 		cascaderSingle: null,
 		cascaderMulti: null,
 		cascaderAsync: null,
+		checkBoxGroup: null,
+		radioGroup: null,
+		depsName: null,
 	})
 	const rules = reactive({
 		name: [{ required: true, message: "请输入姓名", trigger: ["blur"] }],
@@ -74,6 +79,8 @@
 			<DateGroup :model="model" />
 			<SelectGroup :model="model" />
 			<CascaderGroup :model="model" />
+			<CheckRadioGroup :model="model" />
+			<Dependency :model="model" />
 			<ProFormField :span="24">
 				<div class="btn_group">
 					<NButton type="primary" @click="onFinish">提交</NButton>

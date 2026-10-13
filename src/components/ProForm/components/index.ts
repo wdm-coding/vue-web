@@ -7,6 +7,9 @@ import ProFormDateRange from "@/components/ProForm/components/ProFormDateRange/i
 import ProFormSelect from "@/components/ProForm/components/ProFormSelect/index.vue"
 import ProFormGroup from "@/components/ProForm/components/ProFormGroup/index.vue"
 import ProFormCascader from "@/components/ProForm/components/ProFormCascader/index.vue"
+import ProFormRadioGroup from "@/components/ProForm/components/ProFormRadioGroup/index.vue"
+import ProFormCheckBoxGroup from "@/components/ProForm/components/ProFormCheckBoxGroup/index.vue"
+import ProFormDependency from "@/components/ProForm/components/ProFormDependency/index.vue"
 
 export {
   ProForm,
@@ -17,5 +20,8 @@ export {
   ProFormDateRange,
   ProFormSelect,
   ProFormGroup,
-  ProFormCascader
+  ProFormCascader,
+  ProFormRadioGroup,
+  ProFormCheckBoxGroup,
+  ProFormDependency
 }
