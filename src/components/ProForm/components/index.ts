@@ -12,6 +12,7 @@ import ProFormCascader from "@/components/ProForm/components/ProFormCascader/ind
 import ProFormRadioGroup from "@/components/ProForm/components/ProFormRadioGroup/index.vue"
 import ProFormCheckBoxGroup from "@/components/ProForm/components/ProFormCheckBoxGroup/index.vue"
 import ProFormDependency from "@/components/ProForm/components/ProFormDependency/index.vue"
+import ProFormSwitch from "@/components/ProForm/components/ProFormSwitch/index.vue"
 interface FormInst extends NFormInst {
   getFieldsValue: (params?: string[] | undefined | null | string) => Record<string, any> | null
   setFieldsValue: (values: Record<string, any>) => void
@@ -29,5 +30,6 @@ export {
   ProFormCascader,
   ProFormRadioGroup,
   ProFormCheckBoxGroup,
-  ProFormDependency
+  ProFormDependency,
+  ProFormSwitch,
 }

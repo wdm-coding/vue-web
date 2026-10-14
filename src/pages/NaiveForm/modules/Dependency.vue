@@ -1,10 +1,5 @@
 <script setup lang="ts">
-	import {
-		ProFormDependency,
-		ProFormGroup,
-		ProFormText,
-		ProFormRadioGroup,
-	} from "@/components/ProForm/components/index.ts"
+	import { ProFormDependency, ProFormGroup, ProFormText, ProFormSwitch } from "@/components/ProForm/components/index.ts"
 	defineOptions({
 		name: "Dependency",
 	})
@@ -12,23 +7,10 @@
 
 <template>
 	<ProFormGroup title="联动组件">
-		<ProFormRadioGroup
-			label="是否展示联动组件"
-			path="isShowDep"
-			:options="[
-				{ label: '是', value: '1' },
-				{ label: '否', value: '0' },
-			]"
-		/>
+		<ProFormSwitch label="是否展示联动组件" path="isShowDep" />
 		<ProFormDependency :deps="['isShowDep']">
 			<template #default="{ deps }">
-				<ProFormText
-					v-if="deps.isShowDep === '1'"
-					label="联动组件"
-					path="depsName"
-					placeholder="联动组件"
-					disabledAutocomplete
-				>
+				<ProFormText v-if="deps.isShowDep" label="联动组件" path="depsName" placeholder="联动组件" disabledAutocomplete>
 					<template #prefix>
 						<Icon name="Accessibility" />
 					</template>

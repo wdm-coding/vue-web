@@ -11,7 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/ProForm/components/ProFormCheckBoxGroup copy/index.vue')['default']
+    copy: typeof import('./src/components/ProForm/components/ProFormSwitch copy/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     Message: typeof import('./src/components/Message/index.vue')['default']
@@ -49,7 +49,9 @@ declare module 'vue' {
     ProFormNumber: typeof import('./src/components/ProForm/components/ProFormNumber/index.vue')['default']
     ProFormRadioGroup: typeof import('./src/components/ProForm/components/ProFormRadioGroup/index.vue')['default']
     ProFormSelect: typeof import('./src/components/ProForm/components/ProFormSelect/index.vue')['default']
+    ProFormSwitch: typeof import('./src/components/ProForm/components/ProFormSwitch/index.vue')['default']
     ProFormText: typeof import('./src/components/ProForm/components/ProFormText/index.vue')['default']
+    ProFormUpload: typeof import('./src/components/ProForm/components/ProFormUpload/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/Icon/svg-icon.vue')['default']
