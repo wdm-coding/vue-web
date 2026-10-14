@@ -99,7 +99,6 @@
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
 		<NCascader
-			ref="cascaderRef"
 			style="width: 100%"
 			:value="innerValue"
 			:placeholder="placeholder"

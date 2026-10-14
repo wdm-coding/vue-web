@@ -13,6 +13,7 @@ import ProFormRadioGroup from "@/components/ProForm/components/ProFormRadioGroup
 import ProFormCheckBoxGroup from "@/components/ProForm/components/ProFormCheckBoxGroup/index.vue"
 import ProFormDependency from "@/components/ProForm/components/ProFormDependency/index.vue"
 import ProFormSwitch from "@/components/ProForm/components/ProFormSwitch/index.vue"
+import ProFormCustom from "@/components/ProForm/components/ProFormCustom/index.vue"
 interface FormInst extends NFormInst {
   getFieldsValue: (params?: string[] | undefined | null | string) => Record<string, any> | null
   setFieldsValue: (values: Record<string, any>) => void
@@ -32,4 +33,5 @@ export {
   ProFormCheckBoxGroup,
   ProFormDependency,
   ProFormSwitch,
+  ProFormCustom,
 }

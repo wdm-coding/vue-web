@@ -6,8 +6,9 @@
 	import CascaderGroup from "./modules/CascaderGroup.vue"
 	import CheckRadioGroup from "./modules/CheckRadioGroup.vue"
 	import Dependency from "./modules/Dependency.vue"
+	import ProFormCustom from "@/components/ProForm/components/ProFormCustom/index.vue"
 	import { onMounted, reactive, ref } from "vue"
-	import { NButton } from "naive-ui"
+	import { NButton, NInput } from "naive-ui"
 	import useStore from "@/hooks/useStore.ts"
 	const { scrollTarget } = useStore("global")
 	const formRef = ref<FormInst | null>(null)
@@ -68,6 +69,11 @@
 			<CascaderGroup />
 			<CheckRadioGroup />
 			<Dependency />
+			<!-- <ProFormCustom label="自定义字段" path="customField">
+				<template #default="{ model, path }">
+					<NInput v-model:value="model[path]" />
+				</template>
+			</ProFormCustom> -->
 			<ProFormField :span="24">
 				<div class="btn_group">
 					<NButton type="primary" @click="onFinish">提交</NButton>
