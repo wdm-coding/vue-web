@@ -1,7 +1,9 @@
 <script setup lang="ts">
-	import { computed, ComputedRef, onMounted, ref, useSlots, watch } from "vue"
+	import { computed, ComputedRef, onMounted, ref, toRef, useSlots, watch } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { NSelect } from "naive-ui"
+	import { useProFormInject } from "../../useForm"
+	const { model } = useProFormInject()
 	const emit = defineEmits(["change"])
 	const props = withDefaults(
 		defineProps<{
@@ -23,7 +25,7 @@
 	// 内部值
 	const innerValue = ref<any>(null)
 	// 外部值
-	const externalValue = defineModel<any>("value", { required: true })
+	const externalValue = props.path ? toRef(model, props.path) : ref(null)
 	const labelField: ComputedRef<string> = computed(() => props.fieldProps?.labelField || "label")
 	const valueField: ComputedRef<string> = computed(() => props.fieldProps?.valueField || "value")
 	const slots = useSlots()
@@ -99,6 +101,8 @@
 			:multiple="multiple"
 			:remote="remote"
 			@update:value="handleChange"
+			:labelField="labelField"
+			:valueField="valueField"
 			v-bind="fieldProps"
 		>
 			<template v-for="(_, name) in slots" :key="name" #[name]="scopedData">

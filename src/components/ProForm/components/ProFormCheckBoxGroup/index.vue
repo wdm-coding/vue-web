@@ -1,7 +1,9 @@
 <script setup lang="ts">
-	import { computed, ComputedRef, onMounted, ref, watch } from "vue"
+	import { computed, ComputedRef, onMounted, ref, toRef, watch } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { NCheckboxGroup, NCheckbox } from "naive-ui"
+	import { useProFormInject } from "../../useForm"
+	const { model } = useProFormInject()
 	const emit = defineEmits(["change"])
 	const props = withDefaults(
 		defineProps<{
@@ -22,7 +24,7 @@
 	// 内部值
 	const innerValue = ref<any>(null)
 	// 外部值
-	const externalValue = defineModel<any>("value", { required: true })
+	const externalValue = props.path ? toRef(model, props.path) : ref(null)
 	const labelField: ComputedRef<string> = computed(() => props.fieldProps?.labelField || "label")
 	const valueField: ComputedRef<string> = computed(() => props.fieldProps?.valueField || "value")
 	// 选项

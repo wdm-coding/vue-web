@@ -1,23 +1,32 @@
 <script setup lang="ts">
-	import { ProFormDependency, ProFormGroup, ProFormText } from "@/components/ProForm/components/index.ts"
-	defineProps<{
-		model: Record<string, any>
-	}>()
+	import {
+		ProFormDependency,
+		ProFormGroup,
+		ProFormText,
+		ProFormRadioGroup,
+	} from "@/components/ProForm/components/index.ts"
 	defineOptions({
 		name: "Dependency",
 	})
 </script>
 
 <template>
-	<ProFormGroup title="测试联动">
-		<ProFormDependency :deps="['checkBoxGroup', 'radioGroup']">
+	<ProFormGroup title="联动组件">
+		<ProFormRadioGroup
+			label="是否展示联动组件"
+			path="isShowDep"
+			:options="[
+				{ label: '是', value: '1' },
+				{ label: '否', value: '0' },
+			]"
+		/>
+		<ProFormDependency :deps="['isShowDep']">
 			<template #default="{ deps }">
 				<ProFormText
-					v-if="deps.radioGroup === 'closed'"
-					label="测试联动"
+					v-if="deps.isShowDep === '1'"
+					label="联动组件"
 					path="depsName"
-					v-model:value="model.depsName"
-					placeholder="测试联动"
+					placeholder="联动组件"
 					disabledAutocomplete
 				>
 					<template #prefix>
@@ -28,8 +37,3 @@
 		</ProFormDependency>
 	</ProFormGroup>
 </template>
-
-<style lang="scss" scoped>
-	.comName_wrap {
-	}
-</style>

@@ -1,7 +1,7 @@
 import { inject, provide, Ref, type InjectionKey } from 'vue'
 export interface ProFormContext<T = any> {
   formRef: Ref<any>
-  model: Ref<T>
+  model: Record<string, T>
   grid: boolean
   rowProps?: {
     cols?: number

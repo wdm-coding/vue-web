@@ -1,8 +1,5 @@
 <script setup lang="ts">
 	import { ProFormSelect, ProFormGroup } from "@/components/ProForm/components/index.ts"
-	defineProps<{
-		model: Record<string, any>
-	}>()
 	const options = [
 		{ label: "全部", value: "all" },
 		{ label: "未解决", value: "open" },
@@ -26,7 +23,6 @@
 		<ProFormSelect
 			label="下拉选择(单选)"
 			path="selectSingle"
-			v-model:value="model.selectSingle"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"
@@ -35,7 +31,6 @@
 		<ProFormSelect
 			label="下拉选择(多选)"
 			path="selectMulti"
-			v-model:value="model.selectMulti"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"
@@ -45,7 +40,6 @@
 		<ProFormSelect
 			label="下拉选择(异步加载数据)"
 			path="selectAsync"
-			v-model:value="model.selectAsync"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"

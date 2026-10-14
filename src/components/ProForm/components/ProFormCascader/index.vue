@@ -1,7 +1,9 @@
 <script setup lang="ts">
-	import { computed, onMounted, ref, useSlots, watch } from "vue"
+	import { computed, onMounted, ref, toRef, useSlots, watch } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { CascaderOption, NCascader, NSpin } from "naive-ui"
+	import { useProFormInject } from "../../useForm"
+	const { model } = useProFormInject()
 	const emit = defineEmits(["change"])
 	const props = withDefaults(
 		defineProps<{
@@ -22,7 +24,7 @@
 	// 内部值
 	const innerValue = ref<any>(null)
 	// 外部值
-	const externalValue = defineModel<any>("value", { required: true })
+	const externalValue = props.path ? toRef(model, props.path) : ref(null)
 
 	const slots = useSlots()
 	// 下拉选项

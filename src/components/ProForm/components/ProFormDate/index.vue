@@ -1,7 +1,9 @@
 <script setup lang="ts">
-	import { Slot, useSlots } from "vue"
+	import { ref, Slot, toRef, useSlots } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { NDatePicker } from "naive-ui"
+	import { useProFormInject } from "../../useForm"
+	const { model } = useProFormInject()
 
 	const props = withDefaults(
 		defineProps<{
@@ -16,7 +18,7 @@
 		},
 	)
 
-	const inputValue = defineModel<any>("value", { required: true, default: null })
+	const inputValue: any = props.path ? toRef(model, props.path) : ref(null)
 
 	const slots = useSlots()
 

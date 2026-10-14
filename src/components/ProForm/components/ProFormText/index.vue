@@ -1,12 +1,13 @@
 <script setup lang="ts">
-	import { onMounted, ref, Slot, useSlots } from "vue"
+	import { onMounted, ref, Slot, toRef, useSlots } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { NInput } from "naive-ui"
-
+	import { useProFormInject } from "../../useForm"
+	const { model } = useProFormInject()
 	const props = withDefaults(
 		defineProps<{
 			label?: string
-			path?: string
+			path: string
 			placeholder?: string
 			type?: "text" | "password" | "textarea"
 			fieldProps?: Record<string, any>
@@ -17,8 +18,6 @@
 			disabledAutocomplete: false,
 		},
 	)
-
-	const inputValue = defineModel<any>("value", { required: true, default: null })
 	const readonly = ref(props.disabledAutocomplete)
 	onMounted(() => {
 		if (props.disabledAutocomplete) {
@@ -28,6 +27,7 @@
 		}
 	})
 	const slots = useSlots()
+	const inputValue: any = props.path ? toRef(model, props.path) : ref(null)
 
 	defineOptions({
 		name: "ProFormText",

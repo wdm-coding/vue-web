@@ -1,3 +1,5 @@
+import { FormInst as NFormInst } from "naive-ui"
+
 import ProForm from "@/components/ProForm/index.vue"
 import ProFormText from "@/components/ProForm/components/ProFormText/index.vue"
 import ProFormField from "@/components/ProForm/components/ProFormField/index.vue"
@@ -10,8 +12,12 @@ import ProFormCascader from "@/components/ProForm/components/ProFormCascader/ind
 import ProFormRadioGroup from "@/components/ProForm/components/ProFormRadioGroup/index.vue"
 import ProFormCheckBoxGroup from "@/components/ProForm/components/ProFormCheckBoxGroup/index.vue"
 import ProFormDependency from "@/components/ProForm/components/ProFormDependency/index.vue"
-
+interface FormInst extends NFormInst {
+  getFieldsValue: (params?: string[] | undefined | null | string) => Record<string, any> | null
+  setFieldsValue: (values: Record<string, any>) => void
+}
 export {
+  FormInst,
   ProForm,
   ProFormText,
   ProFormField,

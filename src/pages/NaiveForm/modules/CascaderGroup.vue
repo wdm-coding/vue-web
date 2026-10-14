@@ -1,8 +1,5 @@
 <script setup lang="ts">
 	import { ProFormGroup, ProFormCascader } from "@/components/ProForm/components/index.ts"
-	defineProps<{
-		model: Record<string, any>
-	}>()
 	const options = [
 		{
 			label: "甘肃省",
@@ -70,7 +67,6 @@
 		<ProFormCascader
 			label="级联选择器(单选)"
 			path="cascader"
-			v-model:value="model.cascaderSingle"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"
@@ -82,7 +78,6 @@
 		<ProFormCascader
 			label="级联选择器(多选)"
 			path="cascader"
-			v-model:value="model.cascaderMulti"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"
@@ -96,7 +91,6 @@
 		<ProFormCascader
 			label="级联选择器(异步加载数据)"
 			path="cascader"
-			v-model:value="model.cascaderAsync"
 			placeholder="请选择"
 			:span="12"
 			tooltip="请选择"
