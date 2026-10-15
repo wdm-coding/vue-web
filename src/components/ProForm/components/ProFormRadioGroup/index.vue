@@ -77,6 +77,7 @@
 	})
 	defineOptions({
 		name: "ProFormRadioGroup",
+		inheritAttrs: false,
 	})
 </script>
 

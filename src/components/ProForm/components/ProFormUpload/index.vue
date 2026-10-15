@@ -17,7 +17,8 @@
 	const inputValue: any = props.path ? toRef(model, props.path) : ref(null)
 
 	defineOptions({
-		name: "ProFormSwitch",
+		name: "ProFormUpload",
+		inheritAttrs: false,
 	})
 </script>
 

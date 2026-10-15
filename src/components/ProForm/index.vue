@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { FormInst, NForm } from "naive-ui"
+	import { FormInst, NForm, type FormValidationError } from "naive-ui"
 	import { nextTick, reactive, ref } from "vue"
 	import { useProFormProvide } from "./useForm"
 	const innerFormRef = ref<FormInst | null>(null)
@@ -19,17 +19,11 @@
 		}>(),
 		{},
 	)
-	const emit = defineEmits(["onFinish", "onError", "onReset"])
+	const emit = defineEmits<{
+		onFinish: [model: Record<string, any>]
+		onError: [errors: FormValidationError[]]
+	}>()
 	const model = reactive<Record<string, any>>({})
-	const onFinish = () => {
-		innerFormRef.value?.validate((errors) => {
-			if (!errors) {
-				emit("onFinish", model)
-			} else {
-				emit("onError", errors)
-			}
-		})
-	}
 
 	// 注入 Context
 	useProFormProvide({
@@ -39,24 +33,37 @@
 		rowProps: props.rowProps,
 		colProps: props.colProps,
 	})
-
+	// 滚动到第一个错误位置
+	const scrollFirstError = () => {
+		nextTick(() => {
+			const firstError = document.querySelector(".n-form-item-feedback--error, .n-input--error-status")
+			if (firstError && props.scrollTarget) {
+				const errorRect = firstError.getBoundingClientRect()
+				const containerRect = props.scrollTarget.getBoundingClientRect()
+				const targetTop = errorRect.top - containerRect.top + props.scrollTarget.scrollTop - 100
+				props.scrollTarget.scrollTop = targetTop
+			}
+		})
+	}
+	// 提交表单
+	const onSubmit = () => {
+		innerFormRef.value?.validate((errors) => {
+			if (!errors) {
+				emit("onFinish", model)
+			} else {
+				emit("onError", errors)
+				scrollFirstError()
+			}
+		})
+	}
 	// 验证表单
-	const validate = (...args: any[]) => {
+	const validate = (callback: (errors: FormValidationError[] | null) => void) => {
 		innerFormRef.value?.validate((errors) => {
 			if (errors) {
-				args[0](errors)
-				// 滚动到第一个错误位置
-				nextTick(() => {
-					const firstError = document.querySelector(".n-input--error-status")
-					if (firstError && props.scrollTarget) {
-						const errorRect = firstError.getBoundingClientRect()
-						const containerRect = props.scrollTarget.getBoundingClientRect()
-						const targetTop = errorRect.top - containerRect.top + props.scrollTarget.scrollTop - 100
-						props.scrollTarget.scrollTop = targetTop
-					}
-				})
+				callback(errors)
+				scrollFirstError()
 			} else {
-				args[0](null)
+				callback(null)
 			}
 		})
 	}
@@ -93,7 +100,7 @@
 	}
 	// 暴露原生实例方法
 	defineExpose({
-		onFinish,
+		onSubmit,
 		validate,
 		restoreValidation,
 		invalidateLabelWidth,
@@ -102,6 +109,7 @@
 	})
 	defineOptions({
 		name: "ProForm",
+		inheritAttrs: false,
 	})
 </script>
 
@@ -109,7 +117,6 @@
 	<NForm :model="model" :rules="rules" ref="innerFormRef" v-bind="$attrs">
 		<div
 			v-if="props.grid"
-			v-bind="props.rowProps"
 			class="pro_form_grid"
 			:style="{
 				'--pro-cols': props.rowProps?.cols ?? 24,

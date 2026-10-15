@@ -33,6 +33,7 @@
 
 	defineOptions({
 		name: "ProFormDate",
+		inheritAttrs: false,
 	})
 </script>
 

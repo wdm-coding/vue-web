@@ -87,6 +87,7 @@
 	// 定义组件选项
 	defineOptions({
 		name: "ProFormSelect",
+		inheritAttrs: false,
 	})
 </script>
 

@@ -18,6 +18,7 @@
 
 	defineOptions({
 		name: "ProFormSwitch",
+		inheritAttrs: false,
 	})
 </script>
 

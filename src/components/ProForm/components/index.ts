@@ -17,6 +17,7 @@ import ProFormCustom from "@/components/ProForm/components/ProFormCustom/index.v
 interface FormInst extends NFormInst {
   getFieldsValue: (params?: string[] | undefined | null | string) => Record<string, any> | null
   setFieldsValue: (values: Record<string, any>) => void
+  onSubmit: () => void
 }
 export {
   FormInst,

@@ -76,6 +76,7 @@
 	})
 	defineOptions({
 		name: "ProFormCheckBoxGroup",
+		inheritAttrs: false,
 	})
 </script>
 

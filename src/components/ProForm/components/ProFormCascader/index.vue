@@ -93,6 +93,7 @@
 	// 定义组件选项
 	defineOptions({
 		name: "ProFormCascader",
+		inheritAttrs: false,
 	})
 </script>
 

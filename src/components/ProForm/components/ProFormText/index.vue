@@ -31,6 +31,7 @@
 
 	defineOptions({
 		name: "ProFormText",
+		inheritAttrs: false,
 	})
 </script>
 

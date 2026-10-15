@@ -8,7 +8,7 @@
 	import Dependency from "./modules/Dependency.vue"
 	import ProFormCustom from "@/components/ProForm/components/ProFormCustom/index.vue"
 	import { onMounted, reactive, ref } from "vue"
-	import { NButton, NInput } from "naive-ui"
+	import { FormValidationError, NButton, NInput } from "naive-ui"
 	import useStore from "@/hooks/useStore.ts"
 	const { scrollTarget } = useStore("global")
 	const formRef = ref<FormInst | null>(null)
@@ -18,14 +18,11 @@
 		desc: [{ required: true, message: "请输入描述", trigger: ["blur"] }],
 		number: [{ type: "number", required: true, message: "请输入数字", trigger: ["blur"] }],
 	})
-	const onFinish = () => {
-		formRef.value?.validate((errors) => {
-			if (!errors) {
-				console.log("提交成功", formRef.value?.getFieldsValue())
-			} else {
-				console.log("提交失败", errors)
-			}
-		})
+	const onFinish = (model: Record<string, any>) => {
+		console.log("提交成功", model)
+	}
+	const onError = (errors: FormValidationError[]) => {
+		console.log("提交失败", errors)
 	}
 	onMounted(() => {
 		formRef.value?.setFieldsValue({
@@ -62,6 +59,8 @@
 			:rowProps="{ cols: 24 }"
 			:colProps="{ span: 12 }"
 			:scrollTarget="scrollTarget"
+			@onFinish="onFinish"
+			@onError="onError"
 		>
 			<InputGroup />
 			<DateGroup />
@@ -76,7 +75,7 @@
 			</ProFormCustom>
 			<ProFormField :span="24">
 				<div class="btn_group">
-					<NButton type="primary" @click="onFinish">提交</NButton>
+					<NButton type="primary" @click="formRef?.onSubmit()">提交</NButton>
 					<NButton type="primary" @click="onReset">重置</NButton>
 				</div>
 			</ProFormField>

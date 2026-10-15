@@ -50,6 +50,7 @@
 	})
 	defineOptions({
 		name: "ProFormDateRange",
+		inheritAttrs: false,
 	})
 </script>
 

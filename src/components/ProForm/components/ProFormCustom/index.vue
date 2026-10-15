@@ -17,6 +17,7 @@
 
 	defineOptions({
 		name: "ProFormCustom",
+		inheritAttrs: false,
 	})
 </script>
 
