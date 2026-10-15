@@ -69,11 +69,11 @@
 			<CascaderGroup />
 			<CheckRadioGroup />
 			<Dependency />
-			<!-- <ProFormCustom label="自定义字段" path="customField">
-				<template #default="{ model, path }">
-					<NInput v-model:value="model[path]" />
+			<ProFormCustom label="自定义字段" path="customField">
+				<template #default="{}">
+					<NInput />
 				</template>
-			</ProFormCustom> -->
+			</ProFormCustom>
 			<ProFormField :span="24">
 				<div class="btn_group">
 					<NButton type="primary" @click="onFinish">提交</NButton>

@@ -19,6 +19,6 @@
 
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
-		<slot :model="model" :path="path" />
+		<slot />
 	</ProFormField>
 </template>
