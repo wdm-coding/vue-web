@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import { ref, toRef } from "vue"
 	import ProFormField from "../ProFormField/index.vue"
 	import { useProFormInject } from "../../useForm"
 	const { model } = useProFormInject()
@@ -10,7 +9,11 @@
 		}>(),
 		{},
 	)
-	const innerValue: any = props.path ? toRef(model, props.path) : ref(null)
+
+	// 写回表单模型中对应字段的值
+	const setValue = (val: any) => {
+		model[props.path] = val
+	}
 
 	defineOptions({
 		name: "ProFormCustom",
@@ -19,6 +22,6 @@
 
 <template>
 	<ProFormField :label="label" :path="path" v-bind="$attrs">
-		<slot />
+		<slot :value="model[path]" :setValue="setValue" :model="model" />
 	</ProFormField>
 </template>

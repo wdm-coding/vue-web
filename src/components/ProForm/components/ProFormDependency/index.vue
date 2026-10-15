@@ -2,7 +2,6 @@
 	import { useProFormInject } from "../../useForm"
 	import { computed } from "vue"
 	const { model } = useProFormInject()
-	console.log(model)
 	const props = withDefaults(
 		defineProps<{
 			deps: string[]

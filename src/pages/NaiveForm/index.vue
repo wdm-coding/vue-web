@@ -70,8 +70,8 @@
 			<CheckRadioGroup />
 			<Dependency />
 			<ProFormCustom label="自定义字段" path="customField">
-				<template #default="{}">
-					<NInput />
+				<template #default="{ value, setValue }">
+					<NInput :value="value" @update:value="setValue" placeholder="请输入自定义内容" />
 				</template>
 			</ProFormCustom>
 			<ProFormField :span="24">

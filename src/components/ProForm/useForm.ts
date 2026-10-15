@@ -19,7 +19,7 @@ export function useProFormProvide<T>(context: ProFormContext<T>) {
   provide(PRO_FORM_KEY, context)
 }
 
-export function useProFormInject<T>(): ProFormContext<T> {
+export function useProFormInject<T = any>(): ProFormContext<T> {
   const context = inject(PRO_FORM_KEY)
   if (!context) {
     throw new Error('ProForm 子组件必须包裹在 <ProForm> 内部')
