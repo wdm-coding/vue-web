@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { ProFormRadioGroup, ProFormCheckBoxGroup } from "@/components/ProForm/components/index.ts"
+	import { ProFormGroup, ProFormRadioGroup, ProFormCheckBoxGroup } from "@/components/ProForm/components/index.ts"
 	const options = [
 		{ label: "全部", value: "all" },
 		{ label: "未解决", value: "open" },
