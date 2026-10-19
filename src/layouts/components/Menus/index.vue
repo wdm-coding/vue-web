@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import {
-    computed, h, nextTick, ref, watchEffect
+    computed, h, ref, watchEffect
   } from 'vue'
   import { type MenuItem } from '@/layouts/PortalLayout/index.ts'
   import type { MenuOption } from 'naive-ui'
