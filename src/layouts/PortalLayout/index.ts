@@ -5,6 +5,8 @@ export interface MenuItem {
   icon?: string
   access?: string[]
   children?: MenuItem[]
+  type?: 'link' | 'router',
+  openType?: 'blank' | 'self'
 }
 export const menus: MenuItem[] = [
   {
@@ -50,5 +52,12 @@ export const menus: MenuItem[] = [
     name: 'UserCenter',
     title: '个人中心',
     access: ['login']
+  },
+  {
+    path:'/notebook/',
+    name:'Notebook',
+    title:'文档中心',
+    type:'link',
+    openType:'self'
   }
 ]

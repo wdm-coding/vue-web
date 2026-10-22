@@ -7,6 +7,8 @@
   import { useRoute,useRouter } from 'vue-router'
   import CustomLabel from './CustomLabel.vue'
   import Icon from '@/components/Icon/index.vue'
+  import { getLinkUrl } from '@/utils/getUrl'
+  type MenuOptionWithMeta = MenuOption & {meta: {type: 'router' | 'link', openType: 'blank' | 'self'}}
   const route = useRoute()
   const router = useRouter()
   const {
@@ -35,9 +37,13 @@
   }
   const transformMenuOptions: (menus: MenuItem[]) => MenuOption[] = list => {
     return list.map(item => {
-      const baseItem: MenuOption = {
+      const baseItem: MenuOptionWithMeta = {
         label: getLabel(item),
-        key: item.path
+        key: item.path,
+        meta: {
+          type: item.type || 'router',
+          openType: item.openType || 'self'
+        }
       }
       if(item.icon){
         baseItem.icon = () => h(Icon, { name: item.icon as string })
@@ -53,8 +59,12 @@
   watchEffect(() => {
     selectedKey.value = route.path
   })
-  const onUpdateValue = (key: string) => {
-    router.push(key)
+  const onUpdateValue = (key: string, item: MenuOptionWithMeta) => {
+    if(item.meta?.type === 'router'){
+      router.push(key)
+    }else{
+      window.open(getLinkUrl(key), item.meta?.openType === 'blank' ? '_blank' : '_self')
+    }
   }
   defineOptions({
     name: 'Menus'
