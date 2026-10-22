@@ -22,6 +22,8 @@ const useAuthStore = defineStore('auth',
         if (code === 0) {
           setToken(data)
           this.token = data
+          // 写入同源共享登录态标记，供 notebook 等同源前端监听同步
+          localStorage.setItem('wdm_auth_state', 'login')
         }
       },
       async fetchUserInfo() {
@@ -53,6 +55,8 @@ const useAuthStore = defineStore('auth',
           if (code === 0) {
             this.isLoggedIn = false
             this.removeCache()
+            // 清除同源共享登录态标记，notebook 等同源前端监听后同步跳转登录页
+            localStorage.removeItem('wdm_auth_state')
             return true
           }
         } catch (error) {

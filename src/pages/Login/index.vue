@@ -3,8 +3,9 @@
 	import Icon from "@/components/Icon/index.vue"
 	import { FormInst, FormRules } from "naive-ui"
 	import useStore from "@/hooks/useStore"
-	import { useRouter } from "vue-router"
+	import { useRoute, useRouter } from "vue-router"
 	const router = useRouter()
+	const route = useRoute()
 	const { siteName } = useStore("global")
 	const { userLogin } = useStore("auth")
 	interface LoginForm {
@@ -24,7 +25,16 @@
 		formRef.value?.validate((errors) => {
 			if (!errors) {
 				userLogin(form.value).then((path: string) => {
-					console.log("登录成功", form.value)
+					// 存在回跳路径（如被 nginx 拦截的 /notebook/ 页面）时整页跳转：
+					// /notebook/ 是独立应用，不在 vue-web 路由表内，不能用 SPA 路由跳转
+					const redirect = typeof route.query.redirect === "string" && route.query.redirect.startsWith("/")
+						? route.query.redirect
+						: ""
+					console.log("登录成功", redirect || path)
+					if (redirect) {
+						window.location.href = redirect
+						return
+					}
 					router.push(path)
 					window.$message.success("登录成功")
 				})
