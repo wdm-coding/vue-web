@@ -35,7 +35,7 @@ export default defineConfig({
     }
   },
   server: {
-    port: 8000,
+    port: 5001,
     open: true,
     proxy: {
       '/api': {
