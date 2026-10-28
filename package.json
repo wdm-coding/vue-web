@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"axios": "^1.20.0",
+		"gsap": "^3.15.0",
 		"naive-ui": "^2.45.3",
 		"ogl": "^1.0.11",
 		"pinia": "^4.0.3",
@@ -22,6 +23,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.5",
+		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^24.13.4",
 		"@vicons/ionicons5": "^0.13.0",
 		"@vitejs/plugin-vue": "^6.0.8",
@@ -31,6 +33,7 @@
 		"fast-glob": "^3.3.3",
 		"jsrepo": "^3.8.2",
 		"sass": "^1.104.0",
+		"tailwindcss": "^4.3.3",
 		"typescript": "~6.0.2",
 		"typescript-eslint": "^8.70.0",
 		"unplugin-auto-import": "^21.1.0",
