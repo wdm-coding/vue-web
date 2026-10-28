@@ -6,6 +6,7 @@ import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import 'virtual:svg-icons-register'
 import '@/router/utils'
+import '@/styles/theme.scss'
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 

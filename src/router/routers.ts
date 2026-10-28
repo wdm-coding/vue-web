@@ -10,6 +10,13 @@ export interface RouterItem {
 const list: RouterItem[] = [
   {
     path: '/',
+    name: 'Navigation',
+    componentPath: '/Navigation/index.vue',
+    icon: 'navigation',
+    title: '导航'
+  },
+  {
+    path: '/portal',
     name: 'Portal',
     children: [
       {

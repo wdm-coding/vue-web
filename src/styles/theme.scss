@@ -1,0 +1,13 @@
+:root{
+  --n-color: #fff;
+  --n-container-color: #f8f8f8;
+  --n-text-color: #333;
+}
+.theme[data-theme="dark"]{
+  --n-color: rgb(24, 24, 28);
+  --n-container-color: rgb(16, 16, 20);
+  --n-text-color: rgba(255, 255, 255, 0.82);
+}
+body {
+  background-color: var(--n-container-color);
+}

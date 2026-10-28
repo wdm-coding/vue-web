@@ -5,6 +5,7 @@ import useGlobalStore from "./global"
 export interface GlobalState {
   scrollTarget: HTMLElement | undefined
   siteName: string
+  theme: 'dark' | 'light'
 }
 
 /** auth store 状态 */

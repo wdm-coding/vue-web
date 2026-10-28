@@ -4,7 +4,8 @@ const useGlobalStore = defineStore('global',
   {
     state: (): GlobalState => ({
       scrollTarget: undefined,
-      siteName: 'Vue 门户平台'
+      siteName: 'Vue 门户平台',
+      theme: 'dark'
     }),
     actions: {
       setScrollTarget(newTarget: HTMLElement | undefined) {
@@ -13,7 +14,7 @@ const useGlobalStore = defineStore('global',
     },
     persist: {
       key: 'global',
-      omit: ['scrollTarget'],
+      omit: ['scrollTarget','theme'],
       storage: window.sessionStorage
     }
   }
