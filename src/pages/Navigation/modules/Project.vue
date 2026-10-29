@@ -1,6 +1,5 @@
 <script setup lang='ts'>
   import GradientText from '@/components/vueBits/GradientText.vue'
-  import Icon from '@/components/Icon/index.vue'
   import LogoList from '../components/logo-list.vue'
   const devList = [
     {
