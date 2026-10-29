@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AnimatedContent: typeof import('./src/components/vueBits/AnimatedContent.vue')['default']
     Aurora: typeof import('./src/components/vueBits/Aurora.vue')['default']
     DotGrid: typeof import('./src/components/vueBits/DotGrid.vue')['default']
     GradientText: typeof import('./src/components/vueBits/GradientText.vue')['default']
