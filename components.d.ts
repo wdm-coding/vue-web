@@ -13,6 +13,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Aurora: typeof import('./src/components/vueBits/Aurora.vue')['default']
     DotGrid: typeof import('./src/components/vueBits/DotGrid.vue')['default']
+    GradientText: typeof import('./src/components/vueBits/GradientText.vue')['default']
     Icon: typeof import('./src/components/Icon/index.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NButton: typeof import('naive-ui')['NButton']
