@@ -9,7 +9,7 @@
   import UniAppModule from './modules/UniApp.vue'
   import AnimatedContent from '@/components/vueBits/AnimatedContent.vue'
   import { markRaw, ref } from 'vue'
-
+  const logo = new URL('@/assets/images/logo.jpeg', import.meta.url).href
   const siderTabs = [
     {
       id: 1,
@@ -54,7 +54,8 @@
     },
     {
       id: 6,
-      name: '/src/assets/images/navigation/uni-app-logo.png',
+      name: new URL('@/assets/images/navigation/uni-app-logo.png', import.meta.url).href,
+      size: 30,
       label: 'uni-app',
       key: 'uniApp',
       component: markRaw(UniAppModule)
@@ -92,7 +93,7 @@
     <div class='navigation_groups'>
       <div class='navigation_logo'>
         <Icon
-          name="/src/assets/images/logo.jpeg"
+          :name="logo"
           label="wdm"
           width="40px"
           height="40px"
