@@ -9,6 +9,8 @@
   import UniAppModule from './modules/UniApp.vue'
   import AnimatedContent from '@/components/vueBits/AnimatedContent.vue'
   import { markRaw, ref } from 'vue'
+  import useStore from '@/hooks/useStore'
+  const { navigationConfig, setNavigationActiveKey } = useStore('global')
   const logo = new URL('@/assets/images/logo.jpeg', import.meta.url).href
   const siderTabs = [
     {
@@ -61,11 +63,9 @@
       component: markRaw(UniAppModule)
     }
   ]
-  const activeTab = ref('project')
-  const currentComponent = ref(ProjectModule)
+  const currentComponent = ref(siderTabs.find(item => item.key === navigationConfig.value.activeKey)?.component)
   const siderTabClick = (item: any) => {
-    console.log(item)
-    activeTab.value = item.key
+    setNavigationActiveKey(item.key)
     currentComponent.value = item.component
   }
   defineOptions({
@@ -106,7 +106,7 @@
         <div
           v-for="item in siderTabs"
           :key="item.id"
-          :class="['sider_tab', {'active_tab': item.key === activeTab}]"
+          :class="['sider_tab', {'active_tab': item.key === navigationConfig.activeKey}]"
           @click="siderTabClick(item)"
         >
           <Icon
@@ -125,7 +125,7 @@
     </div>
     <div class='navigation_content'>
       <AnimatedContent
-        :key="activeTab"
+        :key="navigationConfig.activeKey"
         :distance="100"
         direction="vertical"
         :reverse="false"

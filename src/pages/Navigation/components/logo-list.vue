@@ -36,7 +36,7 @@
   .logo_list_wrap{
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 60px;
       padding: 20px 0;
       .logo_item{
         display: flex;

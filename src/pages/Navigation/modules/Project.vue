@@ -7,6 +7,12 @@
       label: '陇明公门户',
       icon: 'https://test.gslmg.com/web/front/static/img/logo.f3208d6c.png',
       url: 'https://test.gslmg.com/web/front/#/home'
+    },
+    {
+      key: 'dev-clean-sup-web',
+      label: '环卫工人监管端',
+      icon: 'https://test.gslmg.com/web/front/static/img/logo.f3208d6c.png',
+      url: 'https://sww-test.gslmg.com/project/#/login?redirect=%2F'
     }
   ]
   const prodList = [
@@ -43,6 +49,12 @@
   ]
   const utilList = [
     {
+      key: 'chanDao',
+      label: '禅道',
+      icon: new URL('@/assets/images/navigation/chandao-logo.png', import.meta.url).href,
+      url: 'http://125.74.159.115:8113/my.html'
+    },
+    {
       key: 'gitLab',
       label: 'gitLab',
       icon: new URL('@/assets/images/navigation/csdsj-gitlab-logo.png', import.meta.url).href,
@@ -59,6 +71,12 @@
       label: 'lanhu',
       icon: 'svg-lanhu-logo',
       url: 'https://lanhuapp.com/dashboard/#/item'
+    },
+    {
+      key: 'apiPost',
+      label: 'ApiPost',
+      icon: new URL('@/assets/images/navigation/api-post-logo.png', import.meta.url).href,
+      url: 'https://workspace.apipost.net/'
     }
   ]
   const handleClick = (item: any) => {

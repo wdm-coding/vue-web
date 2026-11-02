@@ -5,7 +5,14 @@
       key: 'qianwen',
       label: '千问',
       icon: 'svg-qianwen-logo',
+      size: 50,
       url: 'https://www.qianwen.com/chat'
+    },
+    {
+      key: 'doubao',
+      label: '豆包',
+      icon: new URL('@/assets/images/navigation/doubao-logo.png', import.meta.url).href,
+      url: 'https://www.doubao.com/chat'
     },
     {
       key: 'deepseek',

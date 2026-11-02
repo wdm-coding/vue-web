@@ -6,6 +6,9 @@ export interface GlobalState {
   scrollTarget: HTMLElement | undefined
   siteName: string
   theme: 'dark' | 'light'
+  navigationConfig: {
+    activeKey: string
+  }
 }
 
 /** auth store 状态 */
