@@ -28,10 +28,3 @@
     <LogoList :items="items" @itemClick="handleClick" />
   </div>
 </template>
-
-
-<style lang='scss' scoped>
-  .ai_wrap{
-  
-  }
-</style>

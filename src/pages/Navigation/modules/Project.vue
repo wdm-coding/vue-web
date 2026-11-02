@@ -25,14 +25,40 @@
     {
       key: 'prod-dcp-dao',
       label: '授权门户',
-      icon: 'svg-dco-dao-logo',
+      icon: 'svg-dcp-dao-logo',
       url: 'https://gsdataop.com/ops-portal/home'
     },
     {
       key: 'prod-dcp-dnf',
       label: '功能节点门户',
-      icon: 'svg-dco-dnf-logo',
+      icon: 'svg-dcp-dnf-logo',
       url: 'https://gansu-ndi.com/fportal/home'
+    },
+    {
+      key: 'prod-dcp-dev',
+      label: '数据产品开发',
+      icon: 'svg-dcp-dev-logo',
+      url: 'https://gsdataop.com/mktplace-dev'
+    }
+  ]
+  const utilList = [
+    {
+      key: 'gitLab',
+      label: 'gitLab',
+      icon: new URL('@/assets/images/navigation/csdsj-gitlab-logo.png', import.meta.url).href,
+      url: 'http://125.74.159.115:8778/dashboard/groups'
+    },
+    {
+      key: 'zadig',
+      label: 'zadig',
+      icon: new URL('@/assets/images/navigation/zadig-logo.png', import.meta.url).href,
+      url: 'https://zadig.silkdo.com/signin?redirect=%2Fv1%2Fdashboard'
+    },
+    {
+      key: 'lanhu',
+      label: 'lanhu',
+      icon: 'svg-lanhu-logo',
+      url: 'https://lanhuapp.com/dashboard/#/item'
     }
   ]
   const handleClick = (item: any) => {
@@ -54,5 +80,7 @@
     <LogoList :items="devList" @itemClick="handleClick" />
     <GradientText text='生产环境' style="font-size: 32px;" />
     <LogoList :items="prodList" @itemClick="handleClick" />
+    <GradientText text='工具' style="font-size: 32px;" />
+    <LogoList :items="utilList" @itemClick="handleClick" />
   </div>
 </template>
