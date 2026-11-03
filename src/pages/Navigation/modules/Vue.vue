@@ -12,6 +12,19 @@
       label: 'Naive UI',
       icon: 'svg-naive-ui-logo',
       url: 'https://www.naiveui.com/zh-CN/os-theme'
+    },
+    {
+      key: 'xicons',
+      label: 'Xicons',
+      icon: 'HappyOutline',
+      color: 'rgb(39, 255, 100)',
+      url: 'https://xicons.org/#/'
+    },
+    {
+      key: 'vitepress',
+      label: 'Vitepress',
+      icon: 'https://vitepress.dev/vitepress-logo-mini.svg',
+      url: 'https://vitepress.dev/zh/reference/site-config#appearance'
     }
   ]
   const handleClick = (item: any) => {

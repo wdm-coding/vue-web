@@ -8,6 +8,7 @@
   import ReactModule from './modules/React.vue'
   import UniAppModule from './modules/UniApp.vue'
   import AnimatedContent from '@/components/vueBits/AnimatedContent.vue'
+  import DocsModule from './modules/Docs.vue'
   import { markRaw, ref } from 'vue'
   import useStore from '@/hooks/useStore'
   const { navigationConfig, setNavigationActiveKey } = useStore('global')
@@ -61,6 +62,14 @@
       label: 'uni-app',
       key: 'uniApp',
       component: markRaw(UniAppModule)
+    },
+    {
+      id: 7,
+      name: 'DocumentsSharp',
+      label: '文档',
+      key: 'docs',
+      color: '#f8f8f8',
+      component: markRaw(DocsModule)
     }
   ]
   const currentComponent = ref(siderTabs.find(item => item.key === navigationConfig.value.activeKey)?.component)

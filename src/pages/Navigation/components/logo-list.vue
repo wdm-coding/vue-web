@@ -25,7 +25,7 @@
       class='logo_item'
       @click="handleClick(item)"
     >
-      <Icon :name="item.icon" width="50px" />
+      <Icon :name="item.icon" width="50px" :color="item?.color" />
       <div class='item_label'>{{ item.label }}</div>
     </div>
   </div>
