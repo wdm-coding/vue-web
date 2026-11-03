@@ -41,10 +41,10 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''), // 重写路径
+        rewrite: (path) => path.replace(/^\/api/, '/api'), // 重写路径
       },
     }
   }

@@ -10,22 +10,21 @@ export interface MenuItem {
 }
 export const menus: MenuItem[] = [
   {
-    path: '/home',
+    path: '/portal/home',
     name: 'Home',
     title: '首页',
     access: []
   },
   {
-    path: '/naiveForm',
+    path: '/portal/naiveForm',
     name: 'NaiveForm',
     title: 'Naive表单项',
     access: []
   },
   {
-    path:'/notebook/',
-    name:'Notebook',
-    title:'文档中心',
-    type:'link',
-    openType:'self'
+    path: '/portal/visualization',
+    name: 'Visualization',
+    title: '数据可视化大屏',
+    access: []
   }
 ]

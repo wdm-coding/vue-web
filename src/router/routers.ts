@@ -34,33 +34,11 @@ const list: RouterItem[] = [
         title: 'NaiveForm'
       },
       {
-        path: 'appCatalog',
-        name: 'AppCatalogue',
-        componentPath: '/AppCatalogue/index.vue',
-        icon: 'app-catalogue',
-        title: '应用资源'
-      },
-      {
-        path: 'parent',
-        name: 'Parent',
-        icon: 'parent',
-        title: '父组件',
-        children: [
-          {
-            path: 'son1',
-            name: 'Son1',
-            componentPath: '/Parent/Son1/index.vue',
-            icon: 'son1',
-            title: '子111'
-          },
-          {
-            path: 'son2',
-            name: 'Son2',
-            componentPath: '/Parent/Son2/index.vue',
-            icon: 'son2',
-            title: '子222'
-          }
-        ]
+        path: 'visualization',
+        name: 'Visualization',
+        componentPath: '/Visualization/index.vue',
+        icon: 'visualization',
+        title: '数据可视化大屏'
       }
     ]
   },

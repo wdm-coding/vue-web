@@ -9,6 +9,7 @@
   import UniAppModule from './modules/UniApp.vue'
   import AnimatedContent from '@/components/vueBits/AnimatedContent.vue'
   import DocsModule from './modules/Docs.vue'
+  import MyAppModule from './modules/MyApp.vue'
   import { markRaw, ref } from 'vue'
   import useStore from '@/hooks/useStore'
   const { navigationConfig, setNavigationActiveKey } = useStore('global')
@@ -58,7 +59,6 @@
     {
       id: 6,
       name: new URL('@/assets/images/navigation/uni-app-logo.png', import.meta.url).href,
-      size: 30,
       label: 'uni-app',
       key: 'uniApp',
       component: markRaw(UniAppModule)
@@ -69,7 +69,17 @@
       label: '文档',
       key: 'docs',
       color: '#f8f8f8',
+      size: 35,
       component: markRaw(DocsModule)
+    },
+    {
+      id: 8,
+      name: 'Apps',
+      label: '我的应用',
+      key: 'myApp',
+      color: '#f8f8f8',
+      size: 35,
+      component: markRaw(MyAppModule)
     }
   ]
   const currentComponent = ref(siderTabs.find(item => item.key === navigationConfig.value.activeKey)?.component)
@@ -186,7 +196,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 10px;
         .sider_tab{
           cursor: pointer;
           width: 100%;
