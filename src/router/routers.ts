@@ -106,6 +106,13 @@ const list: RouterItem[] = [
         ]
       }
     ]
+  },
+  {
+      path: '/visualOutLet/:id',
+      name: 'VisualOutLet',
+      componentPath: '/Visualization/OutLet/index.vue',
+      icon: 'visualization',
+      title: '数据可视化出口组件'
   }
 ]
 
