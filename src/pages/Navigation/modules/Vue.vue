@@ -25,6 +25,13 @@
       label: 'Vitepress',
       icon: 'https://vitepress.dev/vitepress-logo-mini.svg',
       url: 'https://vitepress.dev/zh/reference/site-config#appearance'
+    },
+    {
+      key: 'vueBits',
+      label: 'VueBits',
+      icon: 'DesktopOutline',
+      size: 50,
+      url: 'https://vue-bits.nodejs.cn/backgrounds/aurora'
     }
   ]
   const handleClick = (item: any) => {
