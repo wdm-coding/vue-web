@@ -32,12 +32,11 @@
 
 <style lang='scss' scoped>
   .center_map{
+    width: 900px;
+    height: 686px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 900px;
-    height: 686px;
-    margin-left: 21px;
     .center_map_nav{
       width: 861px;
       height: 82px;

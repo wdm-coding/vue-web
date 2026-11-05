@@ -15,42 +15,30 @@
     </div>
     <!-- 云厂商卡片 -->
     <div
-      v-for="(card, index) in ecosystemDataSource.list"
+      v-for="card in ecosystemDataSource.list"
       :key="card.name"
       class="bottom_ecosystem_card"
-      :class="index === 0 ? 'bottom_ecosystem_card--inspur' : 'bottom_ecosystem_card--kingsoft'"
     >
-      <div
-        class="cloud_card_header"
-        :class="index === 1 ? 'cloud_card_header--kingsoft' : ''"
-      >
+      <div class="cloud_card_header">
         <img
           class="cloud_logo"
-          :class="index === 1 ? 'cloud_logo--kingsoft' : ''"
           :src="card.logo"
-          alt=""
+          alt="logo"
         >
-        <div
-          class="cloud_name_row"
-          :class="index === 1 ? 'cloud_name_row--kingsoft' : ''"
-        >
+        <div class="cloud_name_row">
           <span class="cloud_name">{{ card.name }}</span>
           <img
             class="cloud_badge"
             :src="card.badge"
-            alt=""
+            alt="badge"
           >
         </div>
       </div>
-      <div
-        class="cloud_tags"
-        :class="index === 1 ? 'cloud_tags--kingsoft' : ''"
-      >
+      <div class="cloud_tags">
         <div
-          v-for="(tag, i) in card.tags"
+          v-for="tag in card.tags"
           :key="tag"
           class="cloud_tag"
-          :class="index === 0 && i === 0 ? 'cloud_tag--w174' : index === 1 ? 'cloud_tag--kingsoft' : ''"
         >
           <span>{{ tag }}</span>
         </div>
@@ -59,14 +47,14 @@
     <!-- 多云生态伙伴 -->
     <div class="bottom_ecosystem_card bottom_ecosystem_card--multi">
       <div class="multi_title_wrap">
-        <span class="multi_title">{{ ecosystemDataSource.multi.title }}</span>
+        {{ ecosystemDataSource.multi.title }}
       </div>
       <div class="multi_logos">
         <img
           v-for="logo in ecosystemDataSource.multi.logos"
           :key="logo"
           :src="logo"
-          alt=""
+          alt="logo"
         >
       </div>
     </div>
@@ -76,12 +64,15 @@
 
 <style lang='scss' scoped>
   .bottom_ecosystem{
+    width: 1880px;
+    height: 196px;
     position: relative;
     display: flex;
     flex-direction: row;
-    width: 1880px;
-    height: 196px;
-    margin: 25px 0 0 20px;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-self: center;
+    margin-top: 25px;
     background: url('@/assets/images/visualization/cps/bottom-panel-bg.png') 100% no-repeat;
     background-size: 100% 100%;
     .bottom_ecosystem_title{
@@ -114,7 +105,11 @@
     .bottom_ecosystem_card{
       display: flex;
       flex-direction: column;
+      width: 510px;
       height: 135px;
+      margin-top: 39px;
+      background: url('@/assets/images/visualization/cps/cloud-card-bg.png') 100% no-repeat;
+      background-size: 100% 100%;
       .cloud_card_header{
         display: flex;
         flex-direction: row;
@@ -123,12 +118,8 @@
         height: 43px;
         margin: 15px 0 0 50px;
         .cloud_logo{
-          width: 43px;
           height: 43px;
-        }
-        .cloud_logo--kingsoft{
-          width: 54px;
-          height: 43px;
+          width: auto;
         }
         .cloud_name_row{
           display: flex;
@@ -155,22 +146,15 @@
             margin: 3px 0px 0px 0px;
           }
         }
-        .cloud_name_row--kingsoft{
-          width: 148px;
-          margin: 11px 0px 0px 0px;
-        }
-      }
-      .cloud_card_header--kingsoft{
-        width: 224px;
-        margin: 13px 0 0 29px;
       }
       .cloud_tags{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-self: center;
         width: 480px;
         height: 46px;
-        margin: 11px 0 20px 15px;
+        margin: 11px 0 20px;
         .cloud_tag{
           display: flex;
           flex-direction: column;
@@ -180,7 +164,7 @@
           border-radius: 8px;
           height: 46px;
           border: 1px solid rgba(36, 84, 151, 1);
-          width: 144px;
+          padding: 0 10px;
           span{
             height: 18px;
             overflow-wrap: break-word;
@@ -193,33 +177,10 @@
             line-height: 18px;
           }
         }
-        .cloud_tag--w174{
-          width: 174px;
-        }
-        .cloud_tag--kingsoft{
-          width: 154px;
-        }
       }
-      .cloud_tags--kingsoft{
-        width: 479px;
-        margin: 12px 0 21px 15px;
-      }
-    }
-    .bottom_ecosystem_card--inspur{
-      width: 510px;
-      margin: 38px 0 0 20px;
-      background: url('@/assets/images/visualization/cps/cloud-card-bg.png') 100% no-repeat;
-      background-size: 100% 100%;
-    }
-    .bottom_ecosystem_card--kingsoft{
-      width: 510px;
-      margin: 39px 0 0 22px;
-      background: url('@/assets/images/visualization/cps/cloud-card-bg.png') 100% no-repeat;
-      background-size: 100% 100%;
     }
     .bottom_ecosystem_card--multi{
       width: 776px;
-      margin: 39px 20px 0 22px;
       background: url('@/assets/images/visualization/cps/cloud-card-3-bg.png') 100% no-repeat;
       background-size: 100% 100%;
       .multi_title_wrap{
@@ -228,26 +189,24 @@
         width: 143px;
         height: 24px;
         margin: 24px 0 0 23px;
-        .multi_title{
-          width: 143px;
-          height: 24px;
-          overflow-wrap: break-word;
-          color: rgba(254, 254, 255, 1);
-          font-size: 24px;
-          font-family: 'shsm';
-          font-weight: 700;
-          text-align: left;
-          white-space: nowrap;
-          line-height: 24px;
-        }
+        overflow-wrap: break-word;
+        color: rgba(254, 254, 255, 1);
+        font-size: 24px;
+        font-family: 'shsm';
+        font-weight: 700;
+        text-align: left;
+        white-space: nowrap;
+        line-height: 24px;
       }
       .multi_logos{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
+        align-self: center;
         width: 713px;
         height: 36px;
-        margin: 21px 0 30px 33px;
+        margin: 21px 0 30px;
         img{
           &:nth-child(1){
             width: 107px;
@@ -256,22 +215,18 @@
           &:nth-child(2){
             width: 108px;
             height: 34px;
-            margin: 0 0 0 41px;
           }
           &:nth-child(3){
             width: 108px;
             height: 29px;
-            margin: 0px 0px 0px 40px;
           }
           &:nth-child(4){
             width: 106px;
             height: 24px;
-            margin: 0 0 0 41px;
           }
           &:nth-child(5){
             width: 122px;
             height: 33px;
-            margin: 0px 0px 0px 40px;
           }
         }
       }

@@ -15,8 +15,8 @@
   .cps_footer{
     width: 1920px;
     height: 43px;
-    margin: 18px 0 1px 0;
     background: url('@/assets/images/visualization/cps/footer-bg.png') 100% no-repeat;
     background-size: 100% 100%;
+    margin-top: 18px;
   }
 </style>

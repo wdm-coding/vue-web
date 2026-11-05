@@ -57,6 +57,7 @@
     .cps_main{
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       width: 1880px;
       height: 693px;
       margin: 16px 0 0 20px;
