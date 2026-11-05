@@ -1,6 +1,7 @@
 <script setup lang='ts'>
   import ScaleContainer from '@/pages/Visualization/components/ScaleContainer/index.vue'
   import BarChart from './modules/bar-chart.vue'
+  import BoxTitle from './modules/box-title.vue'
   defineOptions({
     name: 'EchartsScreen'
   })
@@ -8,12 +9,14 @@
 
 
 <template>
-  <ScaleContainer mode="cover">
+  <ScaleContainer mode="stretch">
     <div class='echarts_screen_wrap'>
       <div class='echarts_screen_header' />
       <div class='echarts_screen_content'>
         <div class='echarts_screen_left'>
-          <BarChart />
+          <BoxTitle title='各市州涉及欠薪追薪情况' width='100%' height='315px'>
+            <BarChart />
+          </BoxTitle>
         </div>
         <div class='echarts_screen_middle' />
         <div class='echarts_screen_right' />
@@ -25,14 +28,16 @@
 
 <style lang='scss' scoped>
   .echarts_screen_wrap{
-    width: 100%;
-    height: 100%;
-    background: url('@/assets/images/visualization/cps/bg.png') no-repeat center center;
+    width: 1920px;
+    height: 1080px;
+    background: url('@/assets/images/visualization/chartScreen/bg.png') no-repeat center center;
     background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
     .echarts_screen_header{
       width: 100%;
       height: 77px;
-      background: url('@/assets/images/visualization/cps/header.png') no-repeat center center;
+      background: url('@/assets/images/visualization/chartScreen/header-bg.png') no-repeat center center;
       background-size: 100% 100%;
     }
     .echarts_screen_content{
