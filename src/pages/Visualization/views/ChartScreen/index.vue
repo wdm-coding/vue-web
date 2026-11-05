@@ -1,5 +1,6 @@
 <script setup lang='ts'>
-  import ScaleContainer from '../../components/ScaleContainer/index.vue'
+  import ScaleContainer from '@/pages/Visualization/components/ScaleContainer/index.vue'
+  import BarChart from './modules/bar-chart.vue'
   defineOptions({
     name: 'EchartsScreen'
   })
@@ -11,7 +12,9 @@
     <div class='echarts_screen_wrap'>
       <div class='echarts_screen_header' />
       <div class='echarts_screen_content'>
-        <div class='echarts_screen_left' />
+        <div class='echarts_screen_left'>
+          <BarChart />
+        </div>
         <div class='echarts_screen_middle' />
         <div class='echarts_screen_right' />
       </div>
