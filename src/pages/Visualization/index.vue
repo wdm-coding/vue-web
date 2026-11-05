@@ -9,6 +9,13 @@
       image: new URL('@/assets/images/visualization/cps/cover.png', import.meta.url).href,
       url: '/visualOutLet/1',
       createTime: '2026-01-01'
+    },
+    {
+      id: 2,
+      title: 'Echarts图表大屏',
+      image: new URL('@/assets/images/visualization/cps/cover.png', import.meta.url).href,
+      url: '/visualOutLet/2',
+      createTime: '2026-01-02'
     }
   ]
   const handleCardClick = (url: string) => {
@@ -36,6 +43,9 @@
               <template #cover>
                 <img :src="item.image">
               </template>
+              <div class='visualization_item_description'>
+                {{ item.createTime }}
+              </div>
               <template #footer>
                 <n-button type="primary" @click="handleCardClick(item.url)">查看详情</n-button>
               </template>
@@ -61,6 +71,10 @@
       .visualization_item{
         width: 100%;
         height: 350px;
+        .visualization_item_description{
+          font-size: 12px;
+          color: #999;
+        }
       }
     }
   }
