@@ -1,0 +1,12 @@
+.linear-gradient-nav-text{
+  font-size: 30px;
+  color: #fff;
+  text-align: right;
+  line-height: 7.59vh;
+  font-family: 'ybtth';
+  // 文字渐变色
+  background: linear-gradient(0deg, #00ABEB 0%,#00ABEB 30%, #FFFFFF 70%, #FFFFFF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

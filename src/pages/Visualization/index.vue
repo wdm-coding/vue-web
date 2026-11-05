@@ -6,7 +6,7 @@
     {
       id: 1,
       title: '甘肃省算力调度服务平台',
-      image: new URL('@/assets/images/visualization/v1/cover.png', import.meta.url).href,
+      image: new URL('@/assets/images/visualization/cps/cover.png', import.meta.url).href,
       url: '/visualOutLet/1',
       createTime: '2026-01-01'
     }

@@ -75,3 +75,15 @@ npm install -D @unplugin-vue-components
 
 npm install axios
 npm install reflect-metadata 用于装饰器元数据
+
+
+
+ 1. 页面按 1920×1080 设计基准开发，内部全部使用 px 
+ 2. 安装布局进行页面组件拆分，放在modules, 
+ 3. 颜色、字号、间距尽量从设计图中提取 
+ 4. 第一轮生成布局骨架 
+ 5. 第二轮生成各模块页面
+ 6. 所有切图放在assets/images/visualization/cps/目录下，相同的图片不在重复添加。
+ 7. 可以用css 实现的线条不在使用切图，直接用css 实现。
+ 8. 大屏中的数据循环样式尽量多使用flex布局，间距尽量用flex布局属性实现，而不是用margin。
+ 9. img标签的alt属性建议添加，用于描述图片的内容。
