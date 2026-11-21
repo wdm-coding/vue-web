@@ -18,6 +18,12 @@
       label: 'Antd Pro Components',
       icon: 'svg-antd-pro-logo',
       url: 'https://procomponents.ant.design/components'
+    },
+    {
+      key: 'Zustand',
+      label: 'Zustand',
+      icon: new URL('@/assets/images/navigation/zustand-logo.webp', import.meta.url).href,
+      url: 'https://zustand.nodejs.cn/docs/getting-started/introduction'
     }
   ]
   const handleClick = (item: any) => {

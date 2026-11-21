@@ -32,6 +32,12 @@
       icon: 'DesktopOutline',
       size: 50,
       url: 'https://vue-bits.nodejs.cn/backgrounds/aurora'
+    },
+    {
+      key: 'Pinia',
+      label: 'Pinia',
+      icon: 'svg-pinia-logo',
+      url: 'https://pinia.vuejs.org/zh/introduction.html'
     }
   ]
   const handleClick = (item: any) => {
