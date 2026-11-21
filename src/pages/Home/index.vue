@@ -1,15 +1,15 @@
 <script setup lang="ts">
 	
-	defineOptions({
-		name: "Home",
-	})
+  defineOptions({
+    name: 'Home'
+  })
 </script>
 
 <template>
-	<div class="home_wrap">
-		<n-button type="primary">按钮</n-button>
-		<h1 class="home_banner" />
-	</div>
+  <div class="home_wrap">
+    <n-button type="primary">按钮</n-button>
+    <h1 class="home_banner" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

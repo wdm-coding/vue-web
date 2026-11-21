@@ -12,6 +12,12 @@
       label: 'Ant Design',
       icon: 'svg-antd-logo',
       url: 'https://ant-design.antgroup.com/components/overview-cn/'
+    },
+    {
+      key: 'antd-pro-components',
+      label: 'Antd Pro Components',
+      icon: 'svg-antd-pro-logo',
+      url: 'https://procomponents.ant.design/components'
     }
   ]
   const handleClick = (item: any) => {
